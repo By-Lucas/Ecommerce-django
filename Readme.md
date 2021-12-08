@@ -4,5 +4,10 @@ para que eles não tenham acesso a alguma plataforma em que você usitlize para 
 liberando acessos.
 
 " ALGUNS COMANDOS CITADOS ABAIXO "
+Instalar as bibliotecas
+
+pip install -r requirements.txt
+
+python manage.py runserver
 
 
