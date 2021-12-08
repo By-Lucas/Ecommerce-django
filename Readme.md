@@ -1,7 +1,9 @@
-Olá este projeto é para poder ter controle de usuarios,
-você pode estar cadastrando, editando, excluindo e bloqueado os usuarios
-para que eles não tenham acesso a alguma plataforma em que você usitlize para estar
-liberando acessos.
+## Ecomerce completo + Delivery
+
+**Projeto criado em desenvolvimento...**
+
+Esse projeto é justamente para pessoas que querem vender seus produtos pela internet
+e junto a isso fazer o delivery, mas isso fica a questão
 
 " ALGUNS COMANDOS CITADOS ABAIXO "
 Instalar as bibliotecas
@@ -11,3 +13,4 @@ pip install -r requirements.txt
 python manage.py runserver
 
 
+**Entre em cotato sempre que precisar[canal do Youtube](https://api.whatsapp.com/send?phone=5574981199190&text=Ol%C3%A1%20Lucas%2C%20tudo%20bem%3F%20Pode%20me%20ajudar%20%3F)**
