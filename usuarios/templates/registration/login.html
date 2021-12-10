@@ -4,14 +4,14 @@
 
 {% block content %}
     <div class="container">
-        <h1>Efetuar login</h1>
-        <div class="col-md-4">
+        <h1 class="text-white">Efetuar login</h1>
+        <div class="col-md-4 text-white">
             <form action="." method="POST">
                 {% csrf_token %}
                 {{ form|bootstrap }}
                 <input type="submit" class="btn btn-success col-md-5" value="Entrar">
-                <div class="foot-lnk">
-                    <a href="{% url 'resetPassword' %}">Esqueceu a senha?</a>
+                <div class="foot-lnk ">
+                    <a href="{% url 'resetPassword' %} " >Esqueceu a senha?</a>
                 </div>
             </form>
             

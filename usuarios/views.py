@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import Resgistrar_form
+from .forms import Resgistrar_form, UserProfileForm
 from django.contrib.auth import logout
 from django.contrib.auth.forms import  PasswordChangeForm
 from django.contrib.auth import  update_session_auth_hash
@@ -11,6 +11,10 @@ from django.contrib import messages
 # Pagina inicial
 def home (request):
     return render(request, 'index.html')
+
+# pagina bootstrap de teste
+def index_2 (request):
+    return render(request, 'index2.html')
 
 # pagina bootstrap de teste
 def base_2 (request):
@@ -66,3 +70,19 @@ def alterar_senha(request):
     else:
         form = PasswordChangeForm(user=request.user)
     return render(request, 'alterarSenha.html', {'form_senha': form})
+
+
+def cadastrar_perfil(request):
+    form = UserProfileForm(request.POST)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/inicio/")
+    else:
+        print("Formulario não é valido")
+        print(form.errors)
+    
+    context = {
+        'form': form
+    }
+    return render(request, "cadastrarPerfil.html", context)

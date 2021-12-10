@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import ModelForm
+from django.forms import ModelForm, fields
+
+from .models import Perfil_do_usuario
 
 #PARA CADASTRAR USUARIO DO DJANGO PRECISA TER AS INFORMACOES ABAIXO
 #PORQUE SAO AS INFORMACOES EXATAS DO DJANGO, NAO MUDAR, SE NAO VAI DAR ERRO
@@ -17,4 +19,14 @@ class Resgistrar_form(UserCreationForm):
             'email',
             'password1',
             'password2',
+        ]
+
+class  UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Perfil_do_usuario
+        fields = [
+            'user',
+            'telefone',
+            'endereco_completo',
+            'idade'
         ]

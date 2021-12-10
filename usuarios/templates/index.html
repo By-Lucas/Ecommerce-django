@@ -1,36 +1,119 @@
 {% extends 'base.html' %}
 
+
 {% block body %}
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 <div class="container col-md-7">
-  <h1>Pagina inicial</h1>
-  <h3> <p> Bem vindo a pagina inicial </p></h3>
-
-  <!-- MENSAGEM DE SUCESSO -->
-{% if messages %}
-<div class="alert alert-success alert-dismissible fade show col-md-3"  role="alert">
-    {% for mensagem in messages %}
-    
-      {{ mensagem }}
-    
-    {% endfor %}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-{% endif %}
-
-<!--**************************************************-->
-
-  {% if request.user.is_authenticated %}
-
-    <p>Bem vindo Login: {{ user.username }} <br> E-mail: {{ user.email }} </p>
-    <p>Bem vindo </p>
-
+    <!-- MENSAGEM DE SUCESSO -->
+  {% if messages %}
+  <div class="alert alert-success alert-dismissible fade show col-md-3"  role="alert">
+      {% for mensagem in messages %}
+      
+        {{ mensagem }}
+      
+      {% endfor %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
   {% endif %}
 </div>
 
+<!--**************************************************-->
+
+<section id="home" class="d-flex"><!--home -->
+  <div class="container  align-self-center"><!--container -->
+    <div class="row"><!--row -->
+      <div class="col-md-12 capa">
+        
+        <div id="carousel-spotify" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner"> <!--Inner -->
+            
+            <div class="carousel-item active">
+              <h2 class="h2-branco">Programando soluções</h2>
+              <img src="../static/imagens/2.png" height="300px" alt="">
+              <!--<a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços." target="_blank" class="btn btn-lg btn-custom btn-roxo">
+                Vamos orçamentar?
+              </a>
+              
+              <a href="" class="btn btn-lg btn-custom btn-branco">
+                Obter atendimento premium
+              </a>
+              -->
+            </div>
+
+            <div class="carousel-item">
+              <h1>Os melhores códigos</h1>
+              <a href="criacao.html" class="btn btn-lg btn-custom btn-branco">
+                <i class="fas fa-user"></i> Veja agora!
+              </a>
+            </div>
+
+          </div><!--/Inner -->
+
+          <!-- Controles -->
+          <a href="#carousel-spotify" class="carousel-control-prev" data-slide="prev">
+            <i class="fas fa-angle-left fa-3x"></i>
+          </a>
+
+          <a href="#carousel-spotify" class="carousel-control-next" data-slide="next">
+            <i class="fas fa-angle-right fa-3x"></i>
+          </a>
+
+        </div>
+        
+
+      </div>
+    </div><!--/row -->
+  </div><!--/container -->
+</section><!--/home -->
 
 
+<section id="recursos" class="caixa">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+
+        <h2>TK Fácil</h2>
+        <h3>Missão</h3>
+        <p>Trabalhar de forma rápida, segura e com qualidade para entregar o fonecido.
+        </p>
+
+        <h3>Visão</h3>
+        <p>A cada projeto feito +aprendizado e +confiança dos cleintes em nossos projetos.
+        </p>
+
+        <h3>Valores</h3>
+        <p>Trabalhamos com confiança, e essa é a palavra chave para o sucesso.
+        </p>
+
+      </div>
+      <div class="col-md-8">
+        <div class="row rotacionar">
+          <div class="col-md-6">
+            <img src="../static/imagens/iphone1.png" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <img src="../static/imagens/iphone2.png" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 {% endblock %}
+
 
