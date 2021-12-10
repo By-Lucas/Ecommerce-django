@@ -1,0 +1,189 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../static/img/brand/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    {% block head %}
+    <title>TK Dashboard - Sistema inteligente</title>
+    {% endblock %}
+</head>
+
+<body>
+
+            <!--<nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">-->
+            <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente> -->
+    <header class=""><!-- inicio Cabecalho -->
+      <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+        <div class="container">
+          
+          <a href="{% url 'home' %}" class="navbar-brand">
+            <img src="../static/imagens/tk-group.png" width="180">
+          </a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+            <i class="navbar-toggler-icon"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="nav-principal">
+            <ul class="nav navbar-nav"> 
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-fw fa-home"></i>Inicio</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-fw fa-server"></i>Serviços</a>
+              </li>
+
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a href="{% url 'usuarios' %}" class="nav-link"><i class="fa fa-fw fa-users"></i>Usuarios</a>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+                  <i class="fa fa-fw fa-list-alt "></i>Opções</a>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item " role="presentation" href="{% url 'alterar_senha' %}"><i class="fa fa-fw fa-lock"></i>Alterar senha</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'cadastrar_perfil' %}"><i class="fa fa-fw fa-user-plus"></i>Cadastrar perfil</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'cadastrarUsuario' %}"><i class="fa fa-fw fa-edit"></i>Cadastrar usuario</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'cadastrar_perfil' %}"><i class="fa fa-fw fa-edit"></i>Editar perfil</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'base2' %}"><i class="fa fa-fw fa-user-plus"></i>Base 2</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'deslogar' %}"><i class="fa fa-fw fa-long-arrow-left"></i>Sair</a>
+                  </div>
+              </li>
+
+              <!--<li class="nav-item divisor"></li>-->
+
+              <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-fw fa-video-camera"></i>Videos</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços."target="_blank" class="nav-link"><i class="fa fa-fw fa-whatsapp"></i>Contratar</a>
+              </li>
+              
+            </ul>
+            <ul class="nav navbar-nav ml-auto ">
+
+              <span class="navbar-text"> 
+                <a href="{% url 'deslogar' %}" class=" btn btn-outline-danger"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                  Logount
+                </a>
+
+            <a class="btn-branco" ><i class="fa fa-fw fa-user"></i>
+              {{ user.username }}
+            </a>
+          </span>
+          
+              {% else %}
+              <span class="navbar-item"> 
+                <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                  Login
+                </a>
+              </span>
+                {% endif %}
+            </ul>
+          </div>
+
+          
+
+        </div>
+      </nav>
+    </header><!--/fim Cabecalho -->
+
+
+      <!--ICONE FLUTUANTE DO WHATSAPP-->
+      <div>
+        <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços." target="_blank">
+          <img  class="whatsapp" src="../static/imagens/whatsapp.png"/>
+        </a>
+      </div>
+      <!--FIM DO ICONE WHATSAPP FLUTUANTE-->
+
+    {% block content %}
+    {% endblock %}
+
+    {% block body %} 
+    {% endblock %}
+    
+    <!-- RODAPÉ ********-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="../static/imagens/tk-group.png" width="142">
+          </div>
+          <div class="col-md-2">
+            <h4>company</h4>
+            <ul class="navbar-nav">
+              <li><a href="">Sobre</a></li>
+              <li><a href="">Empregos</a></li>
+              <li><a href="">Imprensa</a></li>
+              <li><a href="">Novidades</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h4>comunidades</h4>
+            <ul class="navbar-nav">
+              <li><a href="">Artistas</a></li>
+              <li><a href="">Desenvolvedores</a></li>
+              <li><a href="">Marcas</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h4>links uteis</h4>
+            <ul class="navbar-nav">
+              <li><a href="">Ajuda</a></li>
+              <li><a href="">Presentes</a></li>
+              <li><a href="">Player da web</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul>
+              
+              <li>
+                <a href=""><img src="../static/imagens/facebook.png"></a>
+              </li>
+              <li>
+                <a href=""><img src="../static/imagens/twitter.png"></a>
+              </li>
+              <li>
+                <a href=""><img src="../static/imagens/instagram.png"></a>
+              </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FIM DO RODAPÉ ********-->
+
+    
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
