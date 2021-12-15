@@ -8,9 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="../static/img/brand/favicon.png" type="image/png">
+    <link rel="icon" href="{% static 'img/brand/favicon.png' %}" type="image/png">
     
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
@@ -31,12 +32,12 @@
 
             <!--<nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">-->
             <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente> -->
-    <header class=""><!-- inicio Cabecalho -->
-      <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-        <div class="container">
+    <header ><!-- inicio Cabecalho -->
+      <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente">
+        <div class="container ">
           
           <a href="{% url 'home' %}" class="navbar-brand">
-            <img src="../static/imagens/tk-group.png" width="180">
+            <img src="{% static 'imagens/tk-group.png' %}" width="180">
           </a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
@@ -44,47 +45,43 @@
           </button>
 
           <div class="collapse navbar-collapse" id="nav-principal">
-            <ul class="nav navbar-nav"> 
+            <ul class="nav navbar-nav "> 
               <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-fw fa-home"></i>Inicio</a>
+                <a href="{% url 'home' %}" class="nav-link  text-white"><i class="fa fa-fw fa-home"></i>Inicio</a>
               </li>
 
               <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link"><i class="fa fa-fw fa-server"></i>Serviços</a>
+                <a href="{% url 'homeProdutos' %}" class="nav-link  text-white"><i class="fas fa-shopping-cart"></i> Produtos</a>
               </li>
 
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a href="{% url 'usuarios' %}" class="nav-link"><i class="fa fa-fw fa-users"></i>Usuarios</a>
+                <a href="{% url 'cadastrarProduto' %}" class="nav-link  text-white"><i class="fa fa-cart-plus"></i> Cadastrar Produtos</a>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
-                  <i class="fa fa-fw fa-list-alt "></i>Opções</a>
+                <a class="dropdown-toggle nav-link  text-white" data-toggle="dropdown" aria-expanded="false" href="#">
+                  <i class="fa fa-sliders-h"></i> Opções</a>
                   <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" role="presentation" href="{% url 'usuarios' %}"><i class="fa fa-fw fa-users"></i>Usuarios</a>
                     <a class="dropdown-item " role="presentation" href="{% url 'alterar_senha' %}"><i class="fa fa-fw fa-lock"></i>Alterar senha</a>
-                    <a class="dropdown-item" role="presentation" href="{% url 'cadastrar_perfil' %}"><i class="fa fa-fw fa-user-plus"></i>Cadastrar perfil</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'cadastrarUsuario' %}"><i class="fa fa-fw fa-edit"></i>Cadastrar usuario</a>
-                    <a class="dropdown-item" role="presentation" href="{% url 'cadastrar_perfil' %}"><i class="fa fa-fw fa-edit"></i>Editar perfil</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'EditarPerfil' %}"><i class="fa fa-fw fa-edit"></i>Editar perfil</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'base2' %}"><i class="fa fa-fw fa-user-plus"></i>Base 2</a>
-                    <a class="dropdown-item" role="presentation" href="{% url 'deslogar' %}"><i class="fa fa-fw fa-long-arrow-left"></i>Sair</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'deslogar' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
                   </div>
               </li>
 
               <!--<li class="nav-item divisor"></li>-->
 
               <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa fa-fw fa-video-camera"></i>Videos</a>
-              </li>
-
-              <li class="nav-item">
-                <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços."target="_blank" class="nav-link"><i class="fa fa-fw fa-whatsapp"></i>Contratar</a>
+                <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços."target="_blank" class="nav-link text-white"><i class="fa fa-fw fa-whatsapp"></i>Contratar</a>
               </li>
               
             </ul>
             <ul class="nav navbar-nav ml-auto ">
 
               <span class="navbar-text"> 
-                <a href="{% url 'deslogar' %}" class=" btn btn-outline-danger"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                <a href="{% url 'deslogar' %}" class=" btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i>
                   Logount
                 </a>
 
@@ -95,7 +92,7 @@
           
               {% else %}
               <span class="navbar-item"> 
-                <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                <a href="{% url 'login' %}" class="nav-link text-white"><i class="fas fa-sign-in-alt"></i>
                   Login
                 </a>
               </span>
@@ -113,7 +110,7 @@
       <!--ICONE FLUTUANTE DO WHATSAPP-->
       <div>
         <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços." target="_blank">
-          <img  class="whatsapp" src="../static/imagens/whatsapp.png"/>
+          <img  class="whatsapp" src="{% static 'imagens/whatsapp.png' %}"/>
         </a>
       </div>
       <!--FIM DO ICONE WHATSAPP FLUTUANTE-->
@@ -129,7 +126,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <img src="../static/imagens/tk-group.png" width="142">
+            <img src="{% static 'imagens/tk-group.png' %}" width="142">
           </div>
           <div class="col-md-2">
             <h4>company</h4>
@@ -160,13 +157,13 @@
             <ul>
               
               <li>
-                <a href=""><img src="../static/imagens/facebook.png"></a>
+                <a href=""><img src="{% static 'imagens/facebook.png' %}"></a>
               </li>
               <li>
-                <a href=""><img src="../static/imagens/twitter.png"></a>
+                <a href=""><img src="{% static 'imagens/twitter.png' %}"></a>
               </li>
               <li>
-                <a href=""><img src="../static/imagens/instagram.png"></a>
+                <a href=""><img src="{% static 'imagens/instagram.png' %}"></a>
               </li>
     
             </ul>

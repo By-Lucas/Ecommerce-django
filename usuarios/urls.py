@@ -21,5 +21,7 @@ urlpatterns = [
     path("resetPassword/password_reset_done/", password_reset_done, name="password_reset_done"),
     path("resetPassword/password_reset_confirm/", password_reset_confirm, name="password_reset_confirm"),
     path("resetPassword/password_reset_complete/", password_reset_complete, name="password_reset_complete"),
-    path("cadastrarPerfil/", views.cadastrar_perfil, name="cadastrar_perfil")
+    path("cadastrarPerfil/", views.cadastrar_perfil, name="cadastrar_perfil"),
+    path("EditarPerfil/", views.EditarPerfil, name="EditarPerfil"),
+    path("salvarAlteracoesUsuario/<slug:username>/", views.salvarAlteracoesUsuario, name="salvarAlteracoesUsuario"),
 ]

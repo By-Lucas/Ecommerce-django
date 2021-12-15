@@ -10,8 +10,9 @@ html, #home {
 	overflow-x: hidden;
 }
 
+
 body {
-	background:linear-gradient(135deg, #172a74, #21a9af);
+	background:linear-gradient(45deg, #8e2de2, #4a00e0);  /* 135deg, #172a74, #21a9af */
 	background-color:#184e8e;
 	padding-bottom:10px;
 	font-family:'Source Sans Pro', sans-serif;
@@ -25,6 +26,11 @@ body {
 
 /* Barra de navegação
 -----------------------------*/
+.menu{
+	width: 100%;
+	height: 80%;
+}
+
 nav.navbar-transparente {
 	padding: 10px 0px;
 	margin-right: 10px;
@@ -56,10 +62,8 @@ nav.navbar-transparente {
 
 .navbar-light .navbar-nav .nav-link:hover {
 	color: #ffff;
-	background: darkblue;
+	background: rgb(34, 34, 175);
     border: #ffff 0.5px solid;
-	border-top-left-radius: 100px;
-	border-top-right-radius: 100px;
 
 }
 
@@ -126,6 +130,20 @@ nav.navbar-transparente {
 
 .btn-branco:hover {
 	background-color: rgb(1, 65, 1);
+	color: black;
+	text-decoration: none;
+}
+
+.botaoBranco{
+	background-color: transparent;
+	padding: 5px 9px 20px 9px;
+	border: 1px solid #ffff;
+	border-radius: 10px;
+	color: #ffff;
+	text-decoration: none;
+}
+.botaoBranco:hover {
+	background-color: #ffff;
 	color: black;
 	text-decoration: none;
 }

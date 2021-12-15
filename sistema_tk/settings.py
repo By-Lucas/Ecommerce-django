@@ -9,6 +9,7 @@ PROECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 #CRIAR TEMPLATES E STATIC PARA css, js, imagens e demais
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates') #adicionar a pasta de templates
+
 STATIC_DIR = os.path.join(BASE_DIR, 'static')#adicionar a pasta de css,js e demais
 
 MESSAGE_TAGS = {
@@ -58,8 +59,10 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     'usuarios',
+    'produtos',
     'crispy_forms',
     'bootstrapform',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +151,7 @@ STATIC_ROOT = ''
 STATICFILES_DIRS = (
     STATIC_DIR,
 )
+
+# para poder usar arquivsos de media 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, fields
 
-from .models import Perfil_do_usuario
+from .models import UserProfile
 
 #PARA CADASTRAR USUARIO DO DJANGO PRECISA TER AS INFORMACOES ABAIXO
 #PORQUE SAO AS INFORMACOES EXATAS DO DJANGO, NAO MUDAR, SE NAO VAI DAR ERRO
@@ -23,10 +23,10 @@ class Resgistrar_form(UserCreationForm):
 
 class  UserProfileForm(forms.ModelForm):
     class Meta:
-        model = Perfil_do_usuario
+        model = UserProfile
         fields = [
             'user',
             'telefone',
             'endereco_completo',
-            'idade'
+            'idade',
         ]

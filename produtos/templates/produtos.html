@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="container">
+	{% csrf_token %}
+	<h1 class="text-white">Produtos</h1>
+
+	<div class="card-body">
+	    <div class="table-responsive">
+
+			<table class="table table-striped table-light">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Código</th>
+			      <th scope="col">Imagem</th>
+			      <th scope="col">Produtos</th>
+			      <th scope="col">Descrição</th>
+			      <th scope="col">Preços</th>
+			      <th scope="col">Status</th>
+			      {% if user.is_authenticated %}
+			      	<th scope="col">Opções</th>
+			      {% endif %}
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			  	{% for produtos in produtos %}
+
+				  	{% if produtos.status_produto == 'Disponivel' %}
+					    <tr>
+					      <th scope="row">{{produtos.codigo_produto}}</th>
+					      {% if produtos.img_produto %}
+					      	<td><img width="50px" height="50px" src="{{produtos.img_produto.url}}"></td>
+					      {% else %}
+					      	<td><img width="50px" height="50px" src="{% static 'imagens/sem-imagem.png'%}/"></td>
+					      {% endif %}
+					      <td>{{produtos.nome_produto}}</td>
+					      <td>{{produtos.descricao_produto}}</td>
+					      <td>R$ {{produtos.preco_produto}}</td>
+					      <td class="text-success"><strong>{{produtos.status_produto}}</strong></td>
+					      {% if user.is_authenticated %}
+					      	<td ><button class="btn btn-primary"><i class="far fa-edit"></i> Editar</button></td>
+					      {% endif %}
+					    </tr>
+
+				    {% else %}
+
+					    <tr class="bg-warning">
+					      <th scope="row">{{produtos.codigo_produto}}</th>
+					      {% if produtos.img_produto %}
+					      	<td><img width="50px" height="50px" src="{{produtos.img_produto.url}}"></td>
+					      {% else %}
+					      	<td><img width="50px" height="50px" src="{% static 'imagens/sem-imagem.png'%}"></td>
+					      {% endif %}
+					      <td>{{produtos.nome_produto}}</td>
+					      <td>{{produtos.descricao_produto}}</td>
+					      <td>R$ {{produtos.preco_produto}}</td>
+					      <td class="text-danger"><strong>{{produtos.status_produto}}</strong></td>
+					      {% if user.is_authenticated %}
+					      	<td ><button class="btn btn-primary"><i class="far fa-edit"></i> Editar</button></td>
+					      {% endif %}
+					    </tr>
+
+				    {% endif %}
+
+			    {% endfor %}
+			  </tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}

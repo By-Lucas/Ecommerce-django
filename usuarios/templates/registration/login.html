@@ -1,21 +1,77 @@
-{% extends 'base.html' %}
-
 {% load bootstrap %}
 
+{% load widget_tweaks %}
+
 {% block content %}
-    <div class="container">
-        <h1 class="text-white">Efetuar login</h1>
-        <div class="col-md-4 text-white">
-            <form action="." method="POST">
-                {% csrf_token %}
-                {{ form|bootstrap }}
-                <input type="submit" class="btn btn-success col-md-5" value="Entrar">
-                <div class="foot-lnk ">
-                    <a href="{% url 'resetPassword' %} " >Esqueceu a senha?</a>
-                </div>
-            </form>
-            
-        </div>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
+  
+  <title>Login</title>
+  
+  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/all.min.css">
+  
+</head>
+<body>
+  <main class="container">
+
+    {% if form.erros %}
+    <div class="alert alert-warning" role="alert">
+        E-mail ou senha incorretos
     </div>
+    {% endif %}
+
+
+    <h2>Efetue o Login</h2>
+    
+    <form method="POST">
+      {% csrf_token %}
+      
+
+      <div class="input-field">
+        <input type="text" name="username" id="username" placeholder="Digite o seu usuário">
+        <div class="underline"></div>
+      </div>
+      
+      <div class="input-field">
+        <input type="password" name="password"  id="password" placeholder="Digite a sua senha">
+        <div class="underline"></div>
+      </div>
+      
+      <input type="submit"  value="Entrar">
+
+      <div class="foot-lnk ">
+        <a href="{% url 'resetPassword' %} " >Esqueceu a senha?</a>
+    </div>
+    </form>
+    
+    <div class="footer">
+      <span>OU conecte com a sua rede social</span>
+      <div class="social-fields">
+        <div class="social-field twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+            Sing in with Twitter
+          </a>
+        </div>
+        <div class="social-field facebook">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+            Sing in with Facebook
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+  
+</body>
+</html>
 {% endblock %}
-                

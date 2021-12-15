@@ -1,176 +1,156 @@
-body{
-	margin:auto;
-	color:#6a6f8c;
-	background:#c8c8c8;
-	font:600 16px/18px 'Open Sans',sans-serif;
-}
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
-.clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:450px;
-	min-height:600px;
-	position:relative;
-	background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
-	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-}
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:rgba(40,57,101,.9);
-}
-.login-html .sign-in-htm,
-.login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
-}
-.login-html .sign-in,
-.login-html .sign-up,
-.login-form .group .check{
-	display:none;
-}
-.login-html .tab,
-.login-form .group .label,
-.login-form .group .button{
-	text-transform:uppercase;
-}
-/* Opções do botão ENTRAR e CADASTRE-SE */
-.login-html .tab{
-	font-size:22px;
-    cursor:pointer;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 0 0 0;
-    margin-top: 10px;
-	display:inline-block;
-	border-bottom:2px solid transparent;
-}
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-	color:#fff;
-	border-color:#1161ee;
-}
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
-}
-.login-form .group{
-	margin-bottom:15px;
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	box-sizing: content-box;
+	font-family: "Poppins", sans-serif;
 }
 
-.login-form .group .label{
-    width:100%;
-	color:#fff;
-	display:block;
+body {
+	background: linear-gradient(45deg, #8e2de2, #4a00e0);
+	background-repeat: no-repeat;
+	min-height:100vh;
+	min-width: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-/* OPCAO DE LOGIN AS (ENTRY)*/
-.login-form .group .input{
-    width:100%;
-	color:#fff;
-	display:block;
+/* Container do formulario */
+main.container{
+	background: white;
+	max-width: 350px;
+	min-height: 40px;
+	padding: 2rem;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
 }
 
-/* Botão de logar */
-.login-form .group .button{
-	width:100%;
-	color:#fff;
-	display:block;
-    cursor:pointer;
-}
-.login-form .group .input,
-.login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
-}
-.login-form .group .label{
-	color:#aaa;
-	font-size:12px;
-}
-.login-form .group .button{
-	background:#1161ee;
-}
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-.login-form .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
-}
-.login-form .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
-}
-.login-form .group .check:checked + label{
-	color:#fff;
-}
-.login-form .group .check:checked + label .icon{
-	background:#1161ee;
-}
-.login-form .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
-}
-.login-form .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
-}
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
-}
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
+min h2{
+	font-weight: 600;
+	margin-bottom: 2rem;
+	position: relative;
 }
 
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-    margin-top: 20px;
-	background:rgba(255,255,255,.2);
+main h2::before{
+	content: '';
+	position: absolute;
+	height: 4px;
+	width: 25px;
+	bottom: 3px;
+	left: 0;
+	border-radius: 8px;
+	background:linear-gradient(45deg, #8e2de2, #4a00e0) ;
 }
 
-.foot-lnk{
-	text-align:center;
-    margin-top: -40px;
-	color: yellow;
-    
+form{
+	display: flex;
+	flex-direction: column;
 }
-.foot-lnk:hover{
-	background-color: white;
+
+.input-field{
+	position: relative;
+}
+
+form .input-field:first-child{
+	margin-bottom: 1.5rem;
+}
+
+/* linha de baixo do formulario */
+.input-field .underline::before{
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	bottom:  -5px;
+	left: 0;
+	background:rgba(0, 0, 0, 0.2)
+}
+
+/* linha de baixo do formulario */
+.input-field .underline::after{
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	bottom:  -5px;
+	left: 0;
+	background:linear-gradient(45deg, #8e2de2, #4a00e0);
+	transform: scaleX(0);
+	transition: all .3s ease-in-out;
+	transform-origin: left; /* psicao de onde a linha aparecerá*/
+}
+
+.input-field input:focus ~ .underline::after{
+	transform: scaleX(1);
+}
+
+.input-field input{
+	outline: none;
+	font-size: 0.9rem;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.input-field input::placeholder{
+	color: rgba(0, 0, 0, 0.5);
+}
+
+/* Botão de Logar */
+form input[type="submit"]{
+	margin-top: 2rem;
+	padding: 0.4rem;
+	background: linear-gradient(to left, #4776E6, #8e45e9);
+	color: white;
+	font-size: 0.9rem;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+
+form input[type="submit"]:hover{
+	letter-spacing:0.5px;
+	background: linear-gradient(to right, #4776E6, #8e45e9);
 	cursor:pointer;
+
+}
+
+.footer{
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+}
+
+/* span */
+.footer span {
+	color: rgba(0, 0, 0, 0.7);
+	border-radius: 4px;
+	text-align: center;
+}
+
+.footer .social-field{
+	padding: 0.4rem;
+	border-radius: 4px;
+	font-size: 0.8rem;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.footer .social-field a i {
+	margin: 0, 05rem;
+	width: 15px;
+}
+
+.footer .social-field a{
+	text-decoration: none;
+	color: white;
+}
+
+.footer .social-field.twitter{
+	background: linear-gradient(to right, #56a7f2, #468aca);
+}
+
+.footer .social-field.facebook{
+	background: linear-gradient(to right, #1e3c72, #2a5298);
 }
