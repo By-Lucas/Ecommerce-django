@@ -9,7 +9,6 @@
     <form method="POST" enctype="multipart/form-data" class="text-white"> 
         <!-- SEMPRE TER ESTE NOME = enctype="multipart/form-data"-->
 
-        
         {% csrf_token %} <!--TOKEN DE SEGUANÇA DO PYTHON, TEM QUE TER NOS FORMULARIOS SEMPRE-->
         
         {{ form|bootstrap }}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block body %}
+
+
+
+
+        
+<div class="container col-md-5 text-white">
+    <h1> Editar informações do produto </h1>
+    <form method="POST" enctype="multipart/form-data"  class="text-white"> 
+        
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label class="control-label  " for="id_codigo_produto">Codigo produto</label>
+                <input type="number" name="codigo_produto" value="{{produtos.codigo_produto}}" class=" form-control" required id="id_codigo_produto">
+            </div>
+
+            <div class="form-group col-md-8">
+                <label class="control-label  " for="id_nome_produto">Nome produto</label>
+                <input type="text" name="nome_produto" value="{{produtos.nome_produto}}" maxlength="50" class=" form-control" required id="id_nome_produto">     
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="control-label  " for="id_descricao_produto">Descricao produto</label>
+                <textarea rows="3" type="text" name="descricao_produto" value="{{ produtos.descricao_produto }}" maxlength="500" class=" form-control" id="id_descricao_produto">{{ produtos.descricao_produto }}</textarea> 
+            </div>
+        </div>
+        
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{form.preco_produto|bootstrap }}
+            </div>
+
+            <div class="form-group col-md-8">
+                <label class="control-label  " for="id_status_produto">Status produto</label>
+                <select name="status_produto" class=" form-control" id="id_status_produto"
+                value="{{produtos.status_produto}}">
+                    <option value="Disponivel">Disponivel</option>
+                    <option value="Indisponivel">Indisponivel</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label class="control-label " for="id_img_produto">Imagem do produto</label>
+                <p><input type="file" name="img_produto" accept="image/*" id="id_img_produto"></p>
+                {% if produtos.img_produto %}
+                    <p><img width="180px" style="border-radius: 10px" src="{{ produtos.img_produto.url }}"></p>
+                {% else %}
+                    <p><img width="180px" style="border-radius: 10px" src="{% static 'imagens/sem-imagem.png'%}"></p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="text-left">
+            <button class="btn btn-primary" type="submit">
+                <span class="text">Salvar Alterações</span>
+            </button>
+            <a href="{% url 'homeProdutos' %}" class="btn btn-secondary text-white" type="button">
+                <span class="text">Cancelar</span>
+            </a>
+        </div>
+        
+    </form>
+    <br>
+    <br>
+    
+</div>
+
+{% endblock %}

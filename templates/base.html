@@ -24,7 +24,7 @@
 
 
     {% block head %}
-    <title>TK Dashboard - Sistema inteligente</title>
+    <title>TK Lanches - O melhor + Delivery grátis</title>
     {% endblock %}
 </head>
 
@@ -55,19 +55,18 @@
               </li>
 
               {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a href="{% url 'cadastrarProduto' %}" class="nav-link  text-white"><i class="fa fa-cart-plus"></i> Cadastrar Produtos</a>
-              </li>
+              
               <li class="dropdown">
                 <a class="dropdown-toggle nav-link  text-white" data-toggle="dropdown" aria-expanded="false" href="#">
                   <i class="fa fa-sliders-h"></i> Opções</a>
                   <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" role="presentation" href="{% url 'cadastrarProduto' %}"><i class="fa fa-fw fa-users"></i>Cadastrar Produtos</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'usuarios' %}"><i class="fa fa-fw fa-users"></i>Usuarios</a>
                     <a class="dropdown-item " role="presentation" href="{% url 'alterar_senha' %}"><i class="fa fa-fw fa-lock"></i>Alterar senha</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'cadastrarUsuario' %}"><i class="fa fa-fw fa-edit"></i>Cadastrar usuario</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'EditarPerfil' %}"><i class="fa fa-fw fa-edit"></i>Editar perfil</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'base2' %}"><i class="fa fa-fw fa-user-plus"></i>Base 2</a>
-                    <a class="dropdown-item" role="presentation" href="{% url 'deslogar' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    <a class="dropdown-item" role="presentation" href="{% url 'menuProdutos' %}"><i class="fas fa-sign-out-alt"></i> Produtos Menu</a>
                   </div>
               </li>
 

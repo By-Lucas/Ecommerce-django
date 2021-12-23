@@ -12,6 +12,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates') #adicionar a pasta de templat
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')#adicionar a pasta de css,js e demais
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',

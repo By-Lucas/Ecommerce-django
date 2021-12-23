@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container col-md-5 text-white">
+    <h1> Editar informações do produto </h1>
+    <form method="POST" enctype="multipart/form-data" class="text-white" action="{% url 'salvarAlteracoesProduto' produto_id %}"> 
+        <!-- SEMPRE TER ESTE NOME = enctype="multipart/form-data"-->
+
+        {% csrf_token %}
+        <!--TOKEN DE SEGUANÇA DO PYTHON, TEM QUE TER NOS FORMULARIOS SEMPRE-->
+
+        <div class="form-group has-error">
+            <label class="control-label  " for="id_codigo_produto">Codigo produto</label>
+            <div class=" ">
+                <input type="number" name="codigo_produto" class=" form-control" required id="id_codigo_produto" value="{{produtos.codigo_produto}}">
+                <span class="help-block ">Este campo é obrigatório.</span>
+            </div>    
+        </div>
+
+        <div class="form-group has-error">
+            <label class="control-label  " for="id_nome_produto">Nome produto</label>
+            <div class=" ">
+                <input type="text" name="nome_produto" maxlength="50" class=" form-control" required id="id_nome_produto" value="{{produtos.nome_produto}}" >
+                <span class="help-block ">Este campo é obrigatório.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label  " for="id_descricao_produto">Descricao produto</label>
+            <div class=" ">
+                <input type="text" name="descricao_produto" maxlength="500" class=" form-control" id="id_descricao_produto" value="{{produtos.descricao_produto}}">  
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label  " for="id_preco_produto">Preco produto</label>
+            <div class=" ">
+                <input type="number" name="preco_produto" step="0.01" class=" form-control" id="id_preco_produto" value="{{produtos.preco_produto}}">     
+            </div>
+        </div>
+
+        <div class="form-group has-error">
+            <label class="control-label  " for="id_status_produto">Status produto</label>
+            <div class=" ">
+                <select name="status_produto" class=" form-control" id="id_status_produto" value="{{produtos.status_produto}}">
+                    <option value="Disponivel">Disponivel</option>
+                    <option value="Indisponivel">Indisponivel</option>
+                </select>
+                <span class="help-block ">Este campo é obrigatório.</span>
+            </div>
+        </div>
+
+        <div class="form-group">    
+            <label class="control-label  " for="id_img_produto">Img produto</label>
+            <div class=" ">
+                <input type="file" name="img_produto" accept="image/*" id="id_img_produto" value="{{produtos.img_produto.url}}">
+            </div>
+        </div>
+
+
+        <button class="btn btn-primary col-md-3" type="submit"> Salvar alterações </button>
+        <br><br>
+        
+    </form>
+</div>
+
+{% endblock %}
