@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    
     <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,78 +33,117 @@
 
             <!--<nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">-->
             <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente> -->
-    <header ><!-- inicio Cabecalho -->
+    <header><!-- inicio Cabecalho -->
       <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente">
-        <div class="container ">
-          
+        <div class="container-fluid">
+
           <a href="{% url 'home' %}" class="navbar-brand">
-            <img src="{% static 'imagens/tk-group.png' %}" width="180">
+            <img src="{% static 'imagens/tk-group.png' %}" width="150px">
           </a>
 
+          <div class="col align-self-center">
+            <div class="input-group">
+              <input type="text" class="form-control col-mb-5" placeholder="Buscar produto" aria-label="Buscar produto" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <div class="input-group-text" style="background-color: #FFF"><i class="fas fa-search"></i></div>
+              </div>
+            </div>
+          </div>
+
+        <div class="align-right">
+
+          <div class="col align-self-end">
           <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
             <i class="navbar-toggler-icon"></i>
           </button>
+          
 
-          <div class="collapse navbar-collapse" id="nav-principal">
+          <div class="collapse navbar-collapse"> <!-- id="nav-principal"-->
             <ul class="nav navbar-nav "> 
+
               <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link  text-white"><i class="fa fa-fw fa-home"></i>Inicio</a>
+                <img src="/static/imagens/promocao.png" width="150px" alt="">
               </li>
 
               <li class="nav-item">
-                <a href="{% url 'homeProdutos' %}" class="nav-link  text-white"><i class="fas fa-shopping-cart"></i> Produtos</a>
+                <a href="{% url 'homeProdutos' %}" class="nav-link "><i class="fas fa-car-side"></i>Todos os produtos na promoção</a>
+              </li>
+              
+
+            </ul>
+          </div>
+        </div>
+        </div>
+      </nav>
+    </header><!--/fim Cabecalho -->
+
+    <header><!-- inicio Cabecalho -->
+      <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente">
+        <div class="container-fluid">
+
+          <div class="col align-self-center">
+
+          <div class="collapse navbar-collapse"> <!-- id="nav-principal"-->
+            <ul class="nav navbar-nav "> 
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link "><i class="fa fa-fw fa-home"></i>Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'menuProdutos' %}" class="nav-link "><i class="fas fa-shopping-cart"></i> Menu</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'homeProdutos' %}" class="nav-link "><i class="fas fa-shopping-cart"></i> Produtos</a>
               </li>
 
               {% if user.is_authenticated %}
               
-              <li class="dropdown">
-                <a class="dropdown-toggle nav-link  text-white" data-toggle="dropdown" aria-expanded="false" href="#">
+              <li class="dropdown gradient">
+                <a class="dropdown-toggle nav-link " data-toggle="dropdown" aria-expanded="false" href="#">
                   <i class="fa fa-sliders-h"></i> Opções</a>
-                  <div class="dropdown-menu" role="menu">
+                  <div class="dropdown-menu  gradient-bg" role="menu">
                     <a class="dropdown-item" role="presentation" href="{% url 'cadastrarProduto' %}"><i class="fa fa-fw fa-users"></i>Cadastrar Produtos</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'usuarios' %}"><i class="fa fa-fw fa-users"></i>Usuarios</a>
                     <a class="dropdown-item " role="presentation" href="{% url 'alterar_senha' %}"><i class="fa fa-fw fa-lock"></i>Alterar senha</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'cadastrarUsuario' %}"><i class="fa fa-fw fa-edit"></i>Cadastrar usuario</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'EditarPerfil' %}"><i class="fa fa-fw fa-edit"></i>Editar perfil</a>
                     <a class="dropdown-item" role="presentation" href="{% url 'base2' %}"><i class="fa fa-fw fa-user-plus"></i>Base 2</a>
-                    <a class="dropdown-item" role="presentation" href="{% url 'menuProdutos' %}"><i class="fas fa-sign-out-alt"></i> Produtos Menu</a>
                   </div>
               </li>
 
               <!--<li class="nav-item divisor"></li>-->
 
               <li class="nav-item">
-                <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços."target="_blank" class="nav-link text-white"><i class="fa fa-fw fa-whatsapp"></i>Contratar</a>
+                <a href="https://api.whatsapp.com/send?phone=5574981199190&text=Olá Tk, tudo bem? Quero fazer um orçamento, ou saber mais sobre seus serviços."target="_blank" class="nav-link">
+                  <i class="fa fa-fw fa-whatsapp"></i>Contratar</a>
               </li>
               
             </ul>
             <ul class="nav navbar-nav ml-auto ">
 
-              <span class="navbar-text"> 
-                <a href="{% url 'deslogar' %}" class=" btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i>
-                  Logount
-                </a>
-
-            <a class="btn-branco" ><i class="fa fa-fw fa-user"></i>
-              {{ user.username }}
-            </a>
-          </span>
+              <li class="dropdown">
+                <a class="dropdown-toggle nav-link " data-toggle="dropdown" aria-expanded="false" href="#">
+                  <i class="fas fa-user"></i> {{ user.username }}</a>
+                  <div class="dropdown-menu gradient-bg" role="menu">
+                    <a class="dropdown-item bg-outline-danger" role="presentation" href="{% url 'deslogar' %}"><i class="fas fa-sign-out-alt"></i>Deslogar</a>
+                  </div>
+              </li>
           
               {% else %}
               <span class="navbar-item"> 
-                <a href="{% url 'login' %}" class="nav-link text-white"><i class="fas fa-sign-in-alt"></i>
+                <a href="{% url 'login' %}" class="nav-link"><i class="fas fa-sign-in-alt"></i>
                   Login
                 </a>
               </span>
                 {% endif %}
             </ul>
           </div>
-
-          
-
+        </div>
         </div>
       </nav>
     </header><!--/fim Cabecalho -->
+
+
 
 
       <!--ICONE FLUTUANTE DO WHATSAPP-->

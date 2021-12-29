@@ -6,13 +6,14 @@
 
 {% block body %}
 
-<div class="container col-md-8 text-center">
+<div class="container col-md-12 text-center">
+
+        <h1>Produtos</h1>
+
 
     {% csrf_token %}
-    <div class="form-row">
-        <div class="form-group">
-            <h1 class="text-white">Produtos</h1>
-        </div>
+    <div class="form-row ">
+        
 
         <div class="form-group col-md-10">
             {% if messages %}
@@ -26,45 +27,65 @@
     </div>
 
     {% for produtos in produtos %} 
-        {% if produtos.status_produto == 'Disponivel' %} 
+        {% if produtos.status_produto == 'Disponivel'  %} 
             {% if produtos.img_produto %}
-            <div class="imagens-div">
-                <a href="{% url 'detalhesProduto' id=produtos.ID %}" data-toggle="modal" data-target="#exampleModal" > <!-- data-toggle="modal" data-target="#exampleModal" -->
-                    <img src="{{ produtos.img_produto.url }}" class="imagens-produtos">
-                    <h3 class="nome-produto">{{produtos.nome_produto}} <br> R${{produtos.preco_produto}}</h3> 
-                </a>
-            </div>
+                <div class="imagens-div">
+                    <a href="{% url 'detalhesProduto' id=produtos.ID %}" data-toggle="modal" data-target="#mocal1"> <!-- data-toggle="modal" data-target="#exampleModal" -->
+                        <img src="{{ produtos.img_produto.url }}" class="imagens-produtos">
+                        <h3 class="nome-produto">{{produtos.nome_produto}} <br> R${{produtos.preco_produto}}</h3> 
+                    </a>
+                </div>
 
-                {% else %}
+            {% else %}
                 
-            <div class="imagens-div">
-                <a href="{% url 'detalhesProduto' id=produtos.ID %}" data-toggle="modal" data-target="#exampleModal">
-                    <img src="{% static 'imagens/sem-imagem.png'%}/" class="imagens-produtos" >
-                    <h3 class="nome-produto">{{produtos.nome_produto}} <br> R${{produtos.preco_produto}}</h3> 
-                </a>
-            </div>
-
+                <div class="imagens-div">
+                    <a href="{% url 'detalhesProduto' id=produtos.ID %}" data-toggle="modal" data-target="#mocal1">
+                        <img src="{% static 'imagens/sem-imagem.png'%}/" class="imagens-produtos" >
+                        <h3 class="nome-produto">{{produtos.nome_produto}} <br> R${{produtos.preco_produto}}</h3> 
+                    </a>
+                </div>
             {% endif %} 
+
+        {% else %}
+
+            {% if produtos.img_produto %}
+                <div class="imagens-div">
+                    <a href="{% url 'detalhesProduto' id=produtos.ID %}" data-toggle="modal" data-target="#mocal1" > <!-- data-toggle="modal" data-target="#exampleModal" -->
+                        <img src="{{ produtos.img_produto.url }}" class="imagens-produtos">
+                        <h3 class="nome-produto">{{produtos.nome_produto}} <br> R${{produtos.preco_produto}}</h3> 
+                    </a>
+                </div>
+
+            {% else %}
+                    
+                <div class="imagens-div">
+                    <a href="{% url 'detalhesProduto' id=produtos.ID %}" data-toggle="modal" data-target="#mocal1">
+                        <img src="{% static 'imagens/sem-imagem.png'%}/" class="imagens-produtos" >
+                        <h3 class="nome-produto">{{produtos.nome_produto}} <br> R${{produtos.preco_produto}}</h3> 
+                    </a>
+                </div>
+            {% endif %} 
+
         {% endif %} 
     {% endfor %} 
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+<div class="modal fade" id="mocal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
 
-         <!--
-          AQUI FICA O CONTEUDO QUE VAI APARECER NO "MODAL"
+        <!--
+        AQUI FICA O CONTEUDO QUE VAI APARECER NO "MODAL"
         -->
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Adcionar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Adcionar</button>
         </div>
 
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}

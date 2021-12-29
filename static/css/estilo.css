@@ -3,6 +3,40 @@
 * @author Lucas Silva
 */
 
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+	--gradient: (45deg, #8e2de2, #4a00e0);
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+}
+
+
 /* Layout
 -----------------------------*/
 html, #home {
@@ -10,11 +44,9 @@ html, #home {
 	overflow-x: hidden;
 }
 
-
 body {
-	background:linear-gradient(45deg, #8e2de2, #4a00e0);  /* 135deg, #172a74, #21a9af */
-	background-color: white; /* #184e8e */
-	padding-bottom:0px;
+	background:linear-gradient(45deg, #f8f9fa, #f8f9fa);  /* 135deg, #172a74, #21a9af */
+	background-color: #f8f9fa; /* #184e8e */
 	font-family:'Source Sans Pro', sans-serif;
 
 	/*background: url(../imagens/capa.png),
@@ -24,33 +56,51 @@ body {
 	font-family: Helvetica,Arial,sans-serif;
 }
 
+.gradient-bg{
+	color: white;
+	background:linear-gradient(45deg, #f0e1c3, #b8b8b1);
+	
+}
+
+.gradient-bg:hover{
+	color: #fff;
+    /*box-shadow: 0 5px 15px rgba(238, 230, 230, 0.6);*/
+}
+
 /* BARRA DE PRODUTOS 
 ------------------------------*/
 .imagens-div{
 	align-items: center;
 	text-align: center;
+	color: black;
 	width: 230px;
 	height: 230px;
-	border-radius: 15px;
+	border-radius: 5px;
 	display: inline-block;
-	padding: 3px 3px 50px 3px;
+	padding: 5px 5px 50px 5px;
 	margin-bottom: 10px;
 }
 
 .imagens-div:hover{
-	background: linear-gradient(45deg, #651aa7, #3f0ca7);
+	background: linear-gradient(45deg, #cecdcd, #c7c5c5);
+	transform: scale(1.0); 
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+	text-decoration: none;
 }
 
 .imagens-produtos{
-	border: #919496 3px solid;
-	border-radius: 15px;
+	border: #919496 1px solid;
+	border-radius: 3px;
 	width: 100%;
 	height: 100%;
 }
 
 .nome-produto {
-	color: #fff;
+	color: rgb(0, 0, 0);
 	font-size: 18px;
+}
+
+.nome-produto:hover{
 	text-decoration: none;
 }
 
@@ -59,14 +109,14 @@ body {
 	text-align: center;
 	width: 250px;
 	height: 200px;
-	border-radius: 15px;
+	border-radius: 3px;
 	display: inline-block;
 	padding: 5px;
 	margin-bottom: 10px;
 	
 }
 
-/*-----------------------------*/
+/*-------------------------------------*/
 
 /* Barra de navegação
 -----------------------------*/
@@ -77,38 +127,28 @@ body {
 
 
 nav.navbar-transparente {
-	padding: 10px 0px;
-	margin-right: 10px;
-	margin: left;
-	background: transparent;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border: 1px solid red;
-    position: relative;
-    width: 100%;
+	padding-bottom: 5px;
+	background: #F6D728;
+	position: relative;
 	
 }
 
 .navbar-light .navbar-nav .nav-link {
-	color: #ffff;
-	font-size: 17px;
+	color: rgb(85, 59, 59);
+	font-size: 15px;
 	font: bold;
-	border: #ffff 0.5px solid;;
-	background-color: transparent;
-	border-radius: 50px;
 	margin-right: 5px;
 	padding-top:.75rem;
-	padding-bottom:.25rem;
+	padding-bottom:.5rem;
 	transition: 0.3s;
 	box-shadow:none;
 	font-family:'Source Sans Pro', sans-serif;
-	margin-right:.2rem;
+	margin-right: 1px;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-	color: #ffff;
-	background: rgb(34, 34, 175);
-    border: #ffff 0.5px solid;
+	color: #000000;
+    box-shadow: 0 2px rgba(48, 46, 46, 0.6)
 
 }
 
@@ -134,6 +174,17 @@ nav.navbar-transparente {
     width:75px;
 }
 
+.slider{
+	margin: 100%;
+}
+
+.img-slider{
+	padding-top: -100px;
+	width: 100%;
+	height: 500px;
+	position: relative;
+}
+
 /* Capa
 -----------------------------*/
 
@@ -149,11 +200,21 @@ nav.navbar-transparente {
 .btn-custom {
 	color: white;
 	border-radius: 500px;
-	-webkit-border-radius: 500px;
-    -moz-border-radius: 500px;
+	-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     text-transform: uppercase;
     transition: background 0.3s, color 0.4s;
     padding: 10px 20px;
+}
+
+.btn-neon{
+	color: #F6D728;
+    font-size: 7vw;
+	transform: translate(0%, 10%);
+    text-shadow: 1vw 1vw 1vw #000, 
+				0 0 3vw #2f0435, 
+				0 0 3vw #2f0435, 
+				0 0 3vw #2f0435;
 }
 
 .btn-roxo {
@@ -194,8 +255,8 @@ nav.navbar-transparente {
 }
 
 .carousel-control-next, .carousel-control-prev {
-	width: 4%;
-	border: 2px solid red;
+	width: 1%;
+	
 }
 
 /* Estrutura conteúdos
@@ -229,6 +290,7 @@ nav.navbar-transparente {
 	padding: 10px 0;
 }
 
+/* COLOCA OS ITEMS OU IMAGENS EM 80º GRAUS ------------------------------------------*/
 .rotacionar {
 	-ms-transform: rotate(30deg); /* IE 9 */
     -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
@@ -564,3 +626,114 @@ transform:rotate(-19deg);
 opacity:0.2;
 }
 
+
+/* MODAL, TEXT ALERT =========================================================== */
+.modal,
+.modal-box {
+  z-index: 900;
+}
+
+.modal-sandbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,.8);
+  overflow: auto;
+}
+
+.modal-box {
+  position: relative;
+  width: 80%;
+  max-width: 920px;
+  margin: 100px auto;
+  animation-name: modalbox;
+  animation-duration: .4s;
+  animation-timing-function: cubic-bezier(0,0,.3,1.6);
+}
+
+.modal-header {
+  padding: 20px 40px;
+  background: #546E7A;
+  color: #ffffff;
+}
+
+
+
+/* Close Button */
+.close-modal {
+  text-align: right;
+  cursor: pointer;
+}
+
+/* Animation */
+@-webkit-keyframes modalbox {
+  0% {
+    top: -250px; 
+    opacity: 0;
+  }
+  100% {
+    top: 0; 
+    opacity: 1;
+  }
+}
+
+@keyframes modalbox {
+  0% {
+    top: -250px; 
+    opacity: 0;
+  }
+  100% {
+    top: 0; 
+    opacity: 1;
+  }
+}
+
+/* Aditional Styles */
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+}
+
+.modal-trigger, button {
+  top: 50%;
+  left: 50%;
+  padding: 20px 40px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  text-decoration: none;
+}
+
+.modal-trigger {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: ease .2s;
+}
+
+button {
+  border: 1px solid #333333;
+  outline: none;
+  color: #333333;
+}
+
+.modal-trigger:hover {
+  padding: 20px 60px;
+}
