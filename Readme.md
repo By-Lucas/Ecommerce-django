@@ -3,6 +3,9 @@
 **100% FullStack**
 
 **Projeto criado em desenvolvimento...**
+<p align="center">
+  <img width=""300px href="media/1.png">
+</p>
 
 **O que terá neste projeto:**
 
